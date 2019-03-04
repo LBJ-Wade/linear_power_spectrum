@@ -1,0 +1,24 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\label{app:B:Higgs-FO}The freeze-out of the Higgs boson}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theequation}{B-\arabic{equation}}
+% redefine the command that creates the equation no.
+\setcounter{equation}{0}  % reset counter 
+
+We argued that we do not have to solve a system of Boltzmann equations for all species in the early Universe, but only for the scalar singlet $S$ and the sterile neutrino $N$, since we rely on the SM particles sourcing the production of $S$ being in thermal equilibrium. This assumption is for sure good for $m_S \gg m_H$, but we should assess its quality if we want to proceed to smaller $m_S$. The smaller $m_S$ the later (in cosmic time) the scalar will be produced in general, and hence the less reliable the assumption of particles like the Higgs or gauge bosons being in equilibrium could be. In fact, all species relevant for sourcing $S$ in the broken phase ($W^\pm$, $Z$, $h$, $t$) have similar masses and are therefore expected to decouple from the thermal plasma at a similar time.
+
+Still, if we restrict ourselves to $m_S > \unit{30}{GeV}$, it is enough to know whether the source particles are still in equilibrium at the corresponding temperature. Even if they are in equilibrium much longer, all the particles mentioned will by then have disappeared due to their masses resulting in strong Boltzmann-suppressions. Since we have not found any detailed source to cross-check this assumption, we have assessed it ourselves with the following analysis.
+
+Let us assume that the Higgs boson $h$ and the top quark $t$ decouple from the plasma before the gauge-bosons, since their mass is larger by a factor of $\orderof{1}$.
+We therefore looked at the following system of coupled Boltzmann equations:
+\begin{align}
+ \hat{L} f_h  &= \CTabs{h}{h}{\mathrm{SM'}\overline{\mathrm{SM'}}}\left[f_h\right]
+  + \CTabs{h}{hh}{\mathrm{SM'}\overline{\mathrm{SM'}}}\left[f_h\right]
+  + \CTabs{h}{h}{t\bar{t}}\left[f_h,f_t\right] \, , \nonumber \\
+  \hat{L} f_t &= \CTabs{t}{t}{\mathrm{SM'}\overline{\mathrm{SM'}}}\left[f_h\right]
+  + \CTabs{t}{tt}{\mathrm{SM'}\overline{\mathrm{SM'}}}\left[f_h\right]
+  + \CTabs{t}{h}{t\bar{t}}\left[f_h,f_t\right] \, ,
+\end{align}
+where $\mathrm{SM'}$ denotes all SM degrees of freedom except for the $t$ and the $h$. The matrix elements going into all the collision terms were computed at tree-level only. The Higgs decay width was taken from Ref.~\cite{Agashe:2014kda}.
+
+Solving them on the level of rate equations, we find that in this system, both the Higgs and the top closely track their equilibrium abundance all the way down to temperatures of about $\unit{1}{GeV}$, where their abundances are exponentially suppressed already. When switching off inverse decays and taking into account only two-to-two-processes, the top would freeze out around $\unit{5}{GeV}$ while the Higgs would freeze out around $\unit{3}{GeV}$. Note that the massive gauge bosons can also be produced via inverse decays, which is another argument to assume that they will decouple only after the Higgs and the top.

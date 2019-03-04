@@ -1,0 +1,250 @@
+\documentclass[12pt]{article}
+%\documentclass[aps,prd,amsmath,amssymb,preprint]{revtex4}
+\pdfoutput=1
+
+\usepackage{hyperref}
+
+\usepackage{newclude} 
+
+
+\usepackage{array} 
+\usepackage{amssymb}
+\usepackage{graphics,graphpap}
+\usepackage{graphicx}
+%\usepackage{showkeys}
+\usepackage{color}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `basename #1 .tif`.png}
+\usepackage{bbm}% bold math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+%\usepackage{bbm}
+%\usepackage{subfigure}
+\usepackage{setspace}
+%\usepackage{slashed}
+
+\usepackage[all]{hypcap}
+\usepackage[titletoc,title]{appendix}
+\usepackage{cite}
+
+
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textwidth}{16cm}
+\setlength{\topmargin}{-0.0in}
+\setlength{\textheight}{21.0cm}
+\setlength{\unitlength}{1mm}
+
+\addtolength{\jot}{10pt} 
+\addtolength{\arraycolsep}{-3pt}
+\renewcommand{\textfraction}{0}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+\newcommand{\cw}{{w_T}}
+\newcommand{\Cw}[1]{{w_T^{#1}}}
+\newcommand{\hoch}{{M_\cU}}
+\newcommand{\Hoch}[1]{{M_\cU^{#1}}}
+\newcommand{\gU}{{\gamma_\cU}}
+%\newcommand{\nn}{~\nonumber \\}
+\newcommand{\p}{{\cal P}\exp}
+\newcommand{\texp}{{\cal T}\exp}
+\newcommand{\ssh}{\gamma\cdot}
+\newcommand{\im}{{\rm Im}}
+\newcommand{\bmp}{\noindent\begin{minipage}{16cm}}
+\newcommand{\emp}{\end{minipage}\vskip 7mm} % 7mm untightened
+\newcommand{\unsplit}{\check}
+\newcommand{\system}{\hat}
+\newcommand{\kernel}{\bar}
+\newcommand{\sigmaf}{\sigma\hspace{-1mm}:\hspace{-1mm}F}
+\newcommand{\drawsquare}[2]{\hbox{%
+\rule{#2pt}{#1pt}\hskip-#2pt% left vertical
+\rule{#1pt}{#2pt}\hskip-#1pt% lower horizontal
+\rule[#1pt]{#1pt}{#2pt}}\rule[#1pt]{#2pt}{#2pt}\hskip-#2pt%upper horizontal
+\rule{#2pt}{#1pt}}% right vertical
+\newcommand{\Yfund}{\raisebox{-.5pt}{\drawsquare{6.5}{0.4}}}% fund
+\newcommand{\Yasymm}{\raisebox{-3.5pt}{\drawsquare{6.5}{0.4}}\hskip-6.9pt%
+                     \raisebox{3pt}{\drawsquare{6.5}{0.4}}%
+                    }% antisymmetric second rank
+\newcommand{\Ysymm}{\Yfund\hskip-0.4pt%
+                    \Yfund}% symmetric second rank
+\def\symm{\Ysymm}
+\def\bsymm{\overline{\Ysymm}}
+% draw box of size #1pt and line thickness #2pt
+\def\drawbox#1#2{\hrule height#2pt
+        \hbox{\vrule width#2pt height#1pt \kern#1pt
+              \vrule width#2pt}
+              \hrule height#2pt}
+\def\Fund#1#2{\vcenter{\vbox{\drawbox{#1}{#2}}}}
+\def\Asym#1#2{\vcenter{\vbox{\drawbox{#1}{#2}
+              \kern-#2pt % line up boxes
+              \drawbox{#1}{#2}}}}
+\def\sym#1#2{\vcenter{\hbox{ \drawbox{#1}{#2} \drawbox{#1}{#2} }}}
+\def\fund{\Fund{6.4}{0.3}}
+\def\asymm{\Asym{6.4}{0.3}}
+\def\bfund{\overline{\fund}}
+\def\basymm{\overline{\asymm}}
+%%%%% end Yang
+
+\newcommand{\qz}{(q z)}
+\newcommand{\ub}{\bar u}
+\newcommand{\quark}{\langle \bar q q\rangle}
+\newcommand{\mixed}{\langle \bar q \sigma gG q\rangle}
+\newcommand{\squark}{\langle \bar s s\rangle}
+\newcommand{\smixed}{\langle \bar s \sigma gG s\rangle}
+\newcommand{\gluon}{\left\langle \frac{\alpha_s}{\pi}\,G^2\right\rangle}
+%\newcommand{\eqref}[1]{(\ref{#1})}
+
+
+\def\simge{\mathrel{%
+   \rlap{\raise 0.511ex \hbox{$>$}}{\lower 0.511ex \hbox{$\sim$}}}}
+
+\def\simle{\mathrel{
+   \rlap{\raise 0.511ex \hbox{$<$}}{\lower 0.511ex \hbox{$\sim$}}}}
+
+\def\s#1{\setbox0=\hbox{$#1$}%
+\rlap{\ifdim\wd0>.7em\kern.22\wd0\else\kern.1\wd0\fi /}#1}
+
+\newcommand{\aver}[1]{\langle #1\rangle}
+
+\newcommand{\La}{\overline{\Lambda}}
+\newcommand{\Si}{\overline{\Sigma}}
+\newcommand{\Lam}{\Lambda_{\rm QCD}}
+\newcommand{\mhad}{\mu_{\rm hadr}}
+
+\newcommand{\sigp}{\vec\sigma \vec\pi}
+
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\de}{\delta}
+\newcommand{\la}{\lambda}
+\newcommand{\as}{\alpha_s}
+\newcommand{\GeV}{\,\mbox{GeV}}
+\newcommand{\MeV}{\,\mbox{MeV}}
+\newcommand{\matel}[3]{\langle #1|#2|#3\rangle}
+\newcommand{\vev}[1]{\langle #1 \rangle} 
+\newcommand{\state}[1]{|#1\rangle}
+\newcommand{\astate}[1]{\langle #1|}
+\newcommand{\ve}[1]{\vec{\bf #1}}
+\newcommand{\dU}{{d_{\cal U}}}
+\newcommand{\cU}{{\cal U}}
+\newcommand{\Lc}{{\Lambda_{\rm UV}}}
+\newcommand{\lc}{{\lambda_{\rm IR}}}
+
+
+\newcommand{\z}[1]{\mathbb{Z}_{#1}}
+\newcommand{\R}[1]{\text{\bf#1}}
+\newcommand{\Ri}[2]{{\text{\bf#1}}_{\text{\bf #2}}}
+\newcommand{\Rib}[2]{\bar{{\text{\bf#1}}}_{\text{\bf #2}}}
+\newcommand{\Rb}[1]{\bar{\text{\bf#1}}}
+\newcommand{\mi}{\!-\!}
+\newcommand{\I}{{\cal I}}
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\iso}{\thickapprox}
+
+\newcommand{\Dsl}{\not\!\!D}
+\newcommand{\rem}{{\bf !!!:}}
+
+\input{OwnCommands.tex}
+
+\usepackage{xcolor}
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{purple}{rgb}{0.5,0,0.5}
+\definecolor{blue}{rgb}{0,0,1}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\title{\vspace*{-2.0cm}
+\hfill {\small MPP-2016-263}\\[20mm]
+\bf\Large
+ keV Sterile Neutrino Dark Matter from Singlet Scalar Decays: The Most General Case \\[5mm]\ }
+
+\author{
+Johannes K\"onig\thanks{email: \tt jkoenig@mpp.mpg.de}~,~~~Alexander Merle\thanks{email: \tt amerle@mpp.mpg.de}~,~~~and~~Maximilian Totzauer\thanks{email: \tt totzauer@mpp.mpg.de}
+\\ \\
+{\normalsize \it Max-Planck-Institut f\"ur Physik (Werner-Heisenberg-Institut),}\\
+{\normalsize \it F\"ohringer Ring 6, 80805 M\"unchen, Germany}\\
+}
+\date{\today}
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+\noindent
+We investigate the early Universe production of sterile neutrino Dark Matter by the decays of singlet scalars. All previous studies applied simplifying assumptions and/or studied the process only on the level of number densities, which makes it impossible to give statements about cosmic structure formation. We overcome these issues by dropping all simplifying assumptions (except for one we showed earlier to work perfectly) and by computing the full course of Dark Matter production on the level of non-thermal momentum distribution functions. We are thus in the position to study all aspects of the resulting settings and apply all relevant bounds in a reliable manner. We have a particular focus on how to incorporate bounds from structure formation on the level of the linear power spectrum, since the simplistic estimate using the free-streaming horizon clearly fails for highly non-thermal distributions. Our work comprises the most detailed and comprehensive study of sterile neutrino Dark Matter production by scalar decays presented so far. 
+\end{abstract}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Introduction}
+%\label{sec:Introduction}
+\include*{LighterScalars_1_Intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{The basic idea: Qualitative discussion}
+%\label{sec:QualitativeDiscussion}
+\include*{LighterScalars_2_QualitativeDiscussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Technicalities}
+%\label{sec:Technicalities}
+\include*{LighterScalars_3_Technicalities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Results}
+%\label{sec:Results}
+\include*{LighterScalars_4_Results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Conclusion \& Outlook}
+%\label{sec:CandO}
+\include*{LighterScalars_5_CandO}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Acknowledgements}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Alex' acknowledgements
+We are grateful to M.~Volpp for very useful discussions concerning the numerical solution of integro-differential equations, and to N.~Menci, A.~Schneider, and M.~Viel for sharing their insights on cosmic structure formation. We would furthermore like to thank A.~Adulpravitchai and M.~A.~Schmidt for giving us detailed information on their earlier work. We also received valuable comments on our manuscript from M.~A.~Schmidt and A.~Schneider. AM acknowledges partial support by the Micron Technology Foundation, Inc. AM furthermore acknowledges partial support by the European Union through the FP7 Marie Curie Actions ITN INVISIBLES (PITN-GA-2011-289442) and by the Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreements No.~690575 (InvisiblesPlus RISE) and No.~674896 (Elusives ITN). MT acknowledges support by Studienstiftung des deutschen Volkes as well as support by the IMPRS-EPP.
+%Johannes' acknowledgements?!?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{appendices}
+\include*{LighterScalars_App_A}
+\include*{LighterScalars_App_B}
+\include*{LighterScalars_App_C}
+\include*{LighterScalars_App_D}
+\end{appendices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%=============================================================================
+\bibliographystyle{./JHEP}
+\bibliography{LighterScalars}
+%=============================================================================
+
+\end{document}

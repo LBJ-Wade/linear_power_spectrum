@@ -1,0 +1,38 @@
+\newlength{\figwidth}
+\newcommand{\Qclass}{def}
+\newcommand{\Qtwocolumn}{def}
+
+\AtBeginDocument{
+	\@ifclassloaded{article}{
+		\renewcommand{\Qclass}{article}
+		\if@twocolumn
+			\setlength{\figwidth}{\columnwidth}
+			\renewcommand{\Qtwocolumn}{yes}
+		\else
+			\setlength{\figwidth}{0.8\columnwidth}
+			\renewcommand{\Qtwocolumn}{no}
+		\fi
+	}{}
+	
+	\@ifclassloaded{revtex4}{
+		\renewcommand{\Qclass}{revtex4}
+		\twocolumn@sw{
+			\setlength{\figwidth}{\columnwidth}
+			\renewcommand{\Qtwocolumn}{yes}
+		}{
+			\setlength{\figwidth}{0.7\columnwidth}
+			\renewcommand{\Qtwocolumn}{no}
+		}
+	}{}
+	
+	\@ifclassloaded{elsarticle}{
+		\renewcommand{\Qclass}{elsarticle}
+		\if@twocolumn
+			\setlength{\figwidth}{\columnwidth}
+			\renewcommand{\Qtwocolumn}{yes}
+		\else
+			\setlength{\figwidth}{0.8\columnwidth}
+			\renewcommand{\Qtwocolumn}{no}
+		\fi
+	}{}
+}

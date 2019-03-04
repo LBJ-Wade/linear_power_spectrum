@@ -1,0 +1,139 @@
+%Eigene Commands Anfang ---------------------------------------------------------------------------------------------
+\usepackage{slashed}
+
+%Eigene Referenzierugskommandos
+\newcommand{\equref}[1]{Eq.~\eqref{#1}}
+\newcommand{\Equref}[1]{Eq.~\eqref{#1}}
+\newcommand{\equTworef}[2]{Eqs.~\ref{#1} and \ref{#2}}
+\newcommand{\EquTworef}[2]{Eqs.~\ref{#1} and \ref{#2}}
+\newcommand{\equThreeref}[3]{Eqs.~\ref{#1}, \ref{#2} and \ref{#3}}
+\newcommand{\EquThreeref}[3]{Eqs.~\ref{#1}, \ref{#2} and \ref{#3}}
+\newcommand{\equrefThrough}[2]{Eqs.~\ref{#1} through \ref{#2}}
+\newcommand{\EqurefThrough}[2]{Eqs.~\ref{#1} through \ref{#2}}
+\newcommand{\figref}[1]{fig.~\ref{#1}}
+\newcommand{\Figref}[1]{Fig.~\ref{#1}}
+\newcommand{\figTworef}[2]{figs.~\ref{#1}, \ref{#2}}
+\newcommand{\FigTworef}[2]{Figs.~\ref{#1}, \ref{#2}}
+\newcommand{\tabref}[1]{Tab.~\ref{#1}}
+\newcommand{\Tabref}[1]{Table~\ref{#1}}
+\newcommand{\chapref}[1]{chapter~\ref{#1}}
+\newcommand{\Chapref}[1]{Chapter~\ref{#1}}
+\newcommand{\secref}[1]{section~\ref{#1}}
+\newcommand{\Secref}[1]{Section~\ref{#1}}
+\newcommand{\appref}[1]{appendix~\ref{#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{#1}}
+
+
+%Farbkodierte Strukturierung Q&A
+\newcommand{\source}[2]{{\bf #1}, formula #2:}
+\newcommand{\answer}{\color{red} ANSWER: }
+\newcommand{\question}{{\color{green} QUESTION: }}
+\newcommand{\todo}[1]{{\color{red} Todo: #1}}
+\newcommand{\strategy}[1]{{\color{blue}strategy: \textit{#1}}}
+\newcommand{\remark}[1]{{\color{magenta}remark: #1 }}
+
+%Sub- und Superskript
+\newcommand{\sub}[2]{#1_{\mathrm{#2}}} 						%subscript with textmode for the subscript
+\newcommand{\subdouble}[3]{#1_{\mathrm{#2},#3}}				%subscript with textmode for first subscript part and mathematical for latter
+\newcommand{\ssscript}[3]{#1_{\mathrm{#2}}^{\mathrm{#3}}} 	%sub-super-script with textmode both in the sub ans in the superscript
+\newcommand{\ssscriptupper}[3]{#1_{#2}^{\mathrm{#3}}}
+
+%Operatoren
+\newcommand{\diffd}{\mathrm{d}}													%differential d in non-cursive
+\newcommand{\dd}[1]{\frac{\mathrm{d}}{\mathrm{d} #1}}							%differential operator with non-cursive d and nothing in nominator 
+\newcommand{\ddn}[2]{\frac{\diffd ^#1}{\diffd #2^#1}} 							%differential operator with non-cursive d and nothing in nominator to nth power
+\newcommand{\DD}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}						%differential operator with non-cursive d 
+\newcommand{\DDn}[3]{\frac{\diffd ^#1 #2}{\diffd #3 ^#1}}
+\newcommand{\DDsquare}[3]{\frac{\mathrm{d} #1}{\mathrm{d} #2 \mathrm{d} #3}}	%differential operator (2nd power) and two explicit arguments
+\newcommand{\partiald}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\partialdd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\partialddd}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\invps}[1]{\frac{\diffd ^3 #1}{\left(2\pi\right)^3 2 E_{#1}}}
+
+%Teilchenphysik
+\newcommand{\Lag}{\mathcal{L}}											%Lagrangian L in special mathcal notation
+\newcommand{\LagArg}[1]{\mathcal{L}_{\mathrm{#1}}}											%Lagrangian L of the SM in special mathcal notation
+\newcommand{\BF}{\mathrm{BF}}											%non-mathmode abbreviation for branching fraction
+\newcommand{\slasehddel}{\slashed{\partial}}
+\newcommand{\Msquared}{\left| \mathcal{M} \right|^2}
+\newcommand{\orderof}[1]{\mathcal{O} \left(#1 \right)}					%order of number in caligraphic or other writing of the ordering symbol
+\newcommand{\orderofunit}[2]{\mathcal{O} \left(#1 \, \mathrm{#2} \right)}	%order of number and unit in unit style
+\newcommand{\sigmas}{\sub{\sigma}{scat}}
+\newcommand{\sigmaa}{\sub{\sigma}{ann}}
+\newcommand{\sigmaatherm}{\left\langle \sigmaa v \right \rangle}
+\newcommand{\sigmatherm}[1]{\left\langle \sigma v \right \rangle_{#1}}
+\newcommand{\sigmav}[1]{\left( \sigma v \right)_{#1}}
+\newcommand{\LCDM}{\Lambda\mathrm{CDM}}
+\newcommand{\av}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\conj}[1]{\ensuremath{\left(#1\right)^c}}
+\newcommand{\CT}[3]{\ensuremath{\mathcal{C}^{#1}_{#2\rightarrow#3}}}
+\newcommand{\CTabs}[3]{\ensuremath{\mathcal{C}^{#1}_{#2\leftrightarrow#3}}}
+	
+	%%Teilchenphysik -- Boltzmanngleichungen
+	\newcommand{\invpsa}[1]{\diffd \Pi_{#1}}
+
+%Mathematik
+\newcommand{\unity}{\mathbb{I} }						%Unity matrix
+\newcommand{\hc}{\mathrm{h.c.}} 						%hermitian conjugate in textmode 
+\newcommand{\group}[3]{#1 \left(#2\right) _#3}			%group symbol with argument in brackets and superscript
+\newcommand{\const}{\mathrm{const }}
+\newcommand{\deltadist}[1]{\delta \left(#1\right)}
+\newcommand{\deltadistn}[2]{\delta^{\left(#1\right)} \left(#2\right)}
+\newcommand{\twopi}{\left(2 \pi\right) }
+\newcommand{\twopin}[1]{\left( 2 \pi \right)^#1}
+\newcommand{\abss}[1]{\mid #1 \mid^2}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\delslashed}{\slashed{\partial}}
+
+  %Mathematik - Fastscript
+  \newcommand{\xn}{x^{\left(n\right)}}
+  \newcommand{\yin}{y_i^{\left(n\right)}}
+  \newcommand{\yinp}{y_i^{\left(n+1\right)}}
+  \newcommand{\ysin}{\tilde{y}_i^{\left(n\right)}}
+  \newcommand{\ysinp}{\tilde{y}_i^{\left(n+1\right)}}
+  
+%Dark Matter as Name
+\newcommand{\dm}{dark matter }							%dark matter in the text 
+\newcommand{\dmp}{dark matter. }						%dark matter in the text 
+\newcommand{\dmc}{dark matter, }						%dark matter in the text 
+\newcommand{\dmh}[1]{dark matter-#1}					%dark matter in the text with hyphenation to next word
+\newcommand{\DM}{Dark matter }							%dark matter in the text at beginning of sentence
+\newcommand{\DMabb}{\mathrm{DM}}	
+\newcommand{\barDMabb}{\overline{\mathrm{DM}}}	
+\newcommand{\dmf}[1]{dark matter\footnote{}}
+\newcommand{\dmfp}[1]{dark matter\footnote{#1}.}
+\newcommand{\dmcite}[1]{dark matter \cite{#1}}
+\newcommand{\dmcitep}[1]{dark matter \cite{#1}.}
+\newcommand{\dmpfootnote}[1]{dark matter.\footnote{#1}}
+
+%Einheiten und allgemeine Formelzeichen 
+\newcommand{\unit}[2]{#1 \, \mathrm{#2}}
+\newcommand{\unitonly}[1]{\mathrm{#1}}
+
+%Software
+
+\newcommand{\code}[1]{\textalltt{#1}}
+%--------------------------------------------
+\makeatletter
+\newcommand*{\textalltt}{}
+\DeclareRobustCommand*{\textalltt}{%
+	\begingroup
+	\let\do\@makeother
+	\dospecials
+	\catcode`\\=\z@
+	\catcode`\{=\@ne
+	\catcode`\}=\tw@
+	\verbatim@font\@noligs
+	\@vobeyspaces
+	\frenchspacing
+	\@textalltt
+}
+\newcommand*{\@textalltt}[1]{%
+	#1%
+	\endgroup
+}
+\makeatother
+%--------------------------------------------
+
+
+%Eigene Commands Ende -----------------------------------------------------------------------------------------------

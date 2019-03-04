@@ -1,0 +1,203 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{\label{app:A:DetailsComputation}Details on the Boltzmann equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\theequation}{A-\arabic{equation}}
+% redefine the command that creates the equation no.
+\setcounter{equation}{0}  % reset counter 
+
+
+The purpose of this appendix is to discuss some technical details related to the Boltzmann equations used in the text. Apart from reporting the explicit forms of the collision terms, we will also show how to perform a convenient transformation of variables, which enables us to deal with considerably simpler equations.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\label{app:coll_terms}Collision Terms}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Let us first present the explicit versions of the collision terms. Note that we will only very briefly describe the basic form of the Boltzmann equation, as information on this part can be found in many textbooks, such as Refs.~\cite{Bernstein,Kolb:1990vq}. Constructing explicit forms for the collision terms is in fact somewhat trivial, although one of course has to be careful to include all relevant factors. Example derivations can be found in the appendix of Ref.~\cite{Merle:2015oja}, however, we will for illustration nevertheless present one explicit derivation, while we only list the results for all other cases.
+
+As explained in the main text, we have two decisive structures, namely ``$2 \rightarrow 2$'' (scattering) and ``$1\rightarrow 2$'' (decay) processes. The question is how to extract their forms from a general collision term. The most general form possible for a collision term describing the reaction $\psi + a + b + ... \leftrightarrow \alpha + \beta + ...$ is~\cite{Kolb:1990vq}:
+\begin{eqnarray}
+ \mathcal{C}[f_\psi] &=& \frac{1}{2 E_p} \int {\rm d} P_a {\rm d} P_b ... {\rm d} P_\alpha {\rm d} P_\beta ... \times (2\pi)^4 \delta^{(4)}(\hat p + \hat p_a +\hat p_b +... -\hat p_\alpha - \hat p_\beta - ...) \times |\mathcal{M}|^2 \nonumber\\
+&& \times \left[f_\alpha f_\beta ... \left(1\pm f_a\right) \left(1\pm f_b\right) ... \left(1 \pm f_\psi\right) - f_a f_b ... f_\psi \left(1 \pm f_\alpha\right) \left(1\pm f_\beta\right) ... \right] ,
+ \label{eq:collision-general}
+\end{eqnarray}
+with $\hat p$ being the 4-momentum and $E_p$ the energy of the particle $\psi$ under consideration. The symbol $|\mathcal{M}|^2$ denotes the (initial and final) spin-averaged matrix element, which also contains symmetry factors for identical final and initial states,\footnote{This is in accordance with the conventions from Ref.~\cite{Kolb:1990vq}. The reason behind symmetry factors also appearing for initial state is that, to arrive at rate equations, we have to integrate over \emph{all} phase space elements, for both initial and final state particles. Thus, to avoid double counting, the symmetry factors have to be included here. This is different from, e.g., the situation at a particle collider, where the initial state is prepared in a certain way, but never integrated over.} as well as multiplicity factors for reactions involving multiple particles per process. Otherwise, the standard definitions apply: the phase space element is ${\rm d} P_X = g_X \frac{{\rm d}^3 p_X}{2 E_X (2\pi)^3}$, for a particle $X$ with $g_X$ internal degrees of freedom, momentum $p_X$, and energy $E_X = \sqrt{m_X^2 + p_X^2}$ with mass $m_X$.
+
+To give one concrete example, we will now explicitly derive the collision term describing the decay of a SM-like Higgs into two singlet scalars $S$, $\mathcal{C}^S_{h \leftrightarrow SS}[f_S](p,T)$. The following quantities label the 4- and 3-momenta, as well as the absolute value of the latter:
+\begin{itemize}
+\item $\hat p$, $\mathbf{p}$, $p\ (\equiv |\mathbf{p}|)$: for either one of the scalars,
+\item $\hat p'$, $\mathbf{p'}$, $p'\ (\equiv |\mathbf{p'}|)$: for the remaining scalar,
+\item $\hat q$, $\mathbf{q}$, $q\ (\equiv |\mathbf{q}|)$: for the Higgs boson.
+\end{itemize}
+We furthermore abbreviate $E^i_{p_j}\equiv \sqrt{m_i^2+p_j^2}$. Starting from Eq.~\eqref{eq:collision-general}, we obtain:
+\begin{eqnarray}
+&& \mathcal{C}^S_{h\leftrightarrow SS}[f_S](p,T) = \frac{1}{2 E^S_p} \int \frac{\mathrm{d}^3p'}{(2 \pi)^3 2 E^S_{p'}} \frac{\mathrm{d}^3 q}{(2 \pi)^3 2 E^h_{q}} ( 2 \pi )^4 \delta^{(4)} \left( \hat p+ \hat p'- \hat q\right) \; \nonumber\\
+&&\times |\mathcal{M}|^2 \left[ f^\text{eq}_h(q,T) - f_S(p,T) f_S(p',T)  \right],
+\end{eqnarray}
+where $|\mathcal{M}|^2 = 16\lambda^2v^2$, cf.\ Eq.~\eqref{eq:matrix_element_example}. The 3-dimensional $\delta$-function eliminates $q$:
+\begin{eqnarray}
+&&\mathcal{C}^S_{h\leftrightarrow SS} [f_S](p,T)= \frac{1}{2 E^S_p} \int \frac{\mathrm{d}^3 p'}{(2 \pi)^2 4 E^S_{p'} E^h_{|\mathbf{p}+\mathbf{p'}|}} \delta (E^S_p+E^S_{p'} - E^h_{|\mathbf{p}+\mathbf{p'}|}) \;\nonumber\\
+&&\times |\mathcal{M}|^2 \left[ f^\text{eq}_h(|\mathbf{p}+\mathbf{p'}|,T) - f_S(p,T) f_S(p',T)  \right].
+\end{eqnarray}
+Due to the remaining $\delta$-function, the term in parentheses can be cast into:
+\begin{eqnarray}
+&&\mathcal{C}^S_{h\leftrightarrow SS} [f_S](p,T) = \frac{1}{2 E^S_p} \int \frac{\mathrm{d}^3p'}{(2 \pi)^2 4 E^S_{p'} E^h_{|\mathbf{p}+\mathbf{p'}|}} \delta (E^S_p+E^S_{p'} - E^h_{|\mathbf{p}+\mathbf{p'}|}) \;\nonumber\\
+&&\times |\mathcal{M}|^2 \left[ f^\text{eq}_S(p,T)f^\text{eq}_S(p',T) - f_S(p,T) f_S(p',T)  \right].
+\end{eqnarray}
+Using spherical coordinates, $\mathrm{d}^3p'=2\pi p'^2\mathrm{d}p'\mathrm{d}(\cos\alpha)$, where $\alpha$ is the angle between $\mathbf{p}$ and $\mathbf{p'}$, we can rewrite the $\delta$-function to obtain:
+\begin{equation}
+\delta(E^S_p+E^S_{p'} - E^h_{|\mathbf{p}+\mathbf{p'}|}) =\delta(\cos\alpha-\cos\alpha_0)\frac{E^h_{|\mathbf{p}+\mathbf{p'}|}|_{\alpha=\alpha_0}}{pp'}.
+\end{equation}
+Here, $\alpha_0$ is the value of $\alpha$ such that $f(\cos\alpha_0)=0$. Using these results, we find
+\begin{eqnarray}
+&& \mathcal{C}^S_{h\leftrightarrow SS} [f_S](p,T) = \frac{1}{2 E^S_p} \int \limits_0^\infty \frac{2 \pi p'^2\mathrm{d}p'}{(2 \pi)^2 4 E^S_{p'} pp'} \underbrace{\int \limits_{-1}^1 \mathrm{d}(\cos\alpha)\; \delta (\cos\alpha-\cos\alpha_0)}_{
+\footnotesize
+\begin{matrix}
+=1\text{ if }\cos\alpha_0\in [-1,1]\text{, }\\
+=0 \text{ otherwise.}\hfill \hfill \hfill
+\end{matrix}
+} \;\nonumber\\
+&&\times |\mathcal{M}|^2 \left[ f^\text{eq}_S(p,T)f^\text{eq}_S(p',T) - f_S(p,T) f_S(p',T) \right].
+\end{eqnarray}
+The result of the integration $\int_{-1}^1 \mathrm{d}(\cos\alpha) \;\delta (\cos\alpha-\cos\alpha_0)$ can be encoded in the limits of the integration over $p'$, i.e., by restricting that integral to those values of $p'$ for which the $\cos\alpha$-integral yields one. So we need to solve
+\begin{align}
+\pm 1= \cos\alpha_0 =\frac{\left( E^S_p + E^S_{p'} \right)^2 - m_h^2 - p^2 -p'^2 }{2 p p'}
+\end{align}
+for $p'$. The solutions are
+\begin{align}
+p' = \frac{(m_h^2-2m_s^2) p \pm m_h \sqrt{(m_h^2 - 4 m_S^2) ( m_S^2 + p^2 )}}{2 m_S^2}\ \ \text{ for }\cos\alpha_0 = +1,\\
+p' = \frac{-(m_h^2-2m_s^2) p \pm m_h \sqrt{(m_h^2 - 4 m_S^2) ( m_S^2 + p^2 )}}{2 m_S^2}\ \ \text{ for }\cos\alpha_0 = -1.
+\end{align}
+As can readily be seen, these amount not to four but to only two distinct values:
+\begin{align}
+p' _1= \frac{(m_h^2-2m_s^2) p + m_h \sqrt{(m_h^2 - 4 m_S^2) ( m_S^2 + p^2 )}}{2 m_S^2},\\
+p' _2= \left|\frac{(m_h^2-2m_s^2) p - m_h \sqrt{(m_h^2 - 4 m_S^2) ( m_S^2 + p^2 )}}{2 m_S^2}\right|.
+\end{align}
+Employing arguments on continuity and limits of $\cos\alpha_0$ for $p'\rightarrow \infty$ and $p'\rightarrow 0$, these two have to be the boundaries of the $p'$-integral, so the final form of this collision term is:
+\begin{align}
+\mathcal{C}^S_{h\leftrightarrow SS} [f_S](p,T) = \frac{1}{16 \pi p E^S_p} \int \limits_{p'_2}^{p'_1} \frac{p' \mathrm{d}p'}{ E^S_{p'} }  \; |\mathcal{M}|^2 \left[ f^\text{eq}_S(p,T)f^\text{eq}_S(p',T) - f_S(p,T) f_S(p',T)  \right].
+\end{align}
+
+Having seen one concrete example, we will now list the full set of collision terms needed to reproduce our results:
+\begin{itemize}
+
+\item $2 \rightarrow 2$-scattering processes:\\
+
+All scattering processes are of the form
+\begin{eqnarray}
+&&\mathcal{C}^S_{ii \leftrightarrow SS}[f_S] (p,T)= \label{eq:all-scattering}\\
+&&= \frac{g_i^2}{16 \sqrt{m_S^2 + p^2} (2 \pi)^3} \int\limits_0^\infty \frac{p'^2 \mathrm{d}p' }{\sqrt{m_S^2 + p'^2}}\int_{-1}^{\cos\alpha_\text{max}}\mathrm{d}(\cos\alpha) \sqrt{ 1 - \frac{4 m_i^2}{\hat s(p,p',\cos\alpha,m_S)}} \;\nonumber\\
+&&\times |\mathcal{M}_{SS \rightarrow ii}(p,p',\cos\alpha)|^2 \left(\vphantom{\frac{ f_S^{\rm eq}(p,T)}{ 1}} f_S^\mathrm{eq}(p,T) \; f_S^\mathrm{eq}(p',T) - f_S(p,T) \; f_S(p',T) \right),\nonumber
+\end{eqnarray}
+where $ii = \phi\phi$,\footnote{Here, $\phi$ denotes any component of the SM-Higgs doublet $\Phi$.} $hh, t\bar{t}, W^+W^-, ZZ$ and $f_S^{\rm eq}(p) = \exp \left( -\sqrt{p^2 + m_S^2}/T \right)$ is the (would-be) equilibrium distribution of the scalar $S$, which is of Boltzmann-shape by virtue of the principle of detailed balance. Furthermore, $\hat s$ is the square of the centre-of-mass energy, explicitly given by:
+\begin{align}
+\hat s(p,p',\cos\alpha,m_S) = 2 ( m_S^2 + \sqrt{ ( m_S^2 + p^2 ) ( m_S^2 + p'^2 ) } - p p' \cos\alpha ).
+\end{align}
+In addition, $p'$ is the momentum of the second scalar participating in the process and $\alpha$ is the angle between $\mathbf{p}$ and $\mathbf{p'}$, whose maximum value is given by $\cos\alpha_\text{max} = \text{min}\{\text{max}\{ \cos\alpha_\text{im}, -1 \}, 1 \}$, defined by $4 m_i^2 = \hat s(p,p',\cos\alpha_\text{im},m_i,m_S)$. This upper integration boundary excludes all values of $\cos\alpha$ for which the integral becomes imaginary due to the square root contained in Eq.~\eqref{eq:all-scattering}.
+
+The spin-averaged matrix elements including a factor of 2 in all of the following because two scalars are annihilated or produced, respectively, in each process, are given by (assuming $CP$-invariance):\footnote{The $hh\leftrightarrow SS$ result is only to leading order in $\lambda$. All others are full tree-level results. These values also include appropriate factors to account for identical particles in the initial or final state.}
+\begin{eqnarray}
+ |\mathcal{M}_{SS\rightarrow \phi\phi}|^2 = |\mathcal{M}_{\phi\phi\rightarrow SS}|^2 &=& 32\lambda^2 , \label{eq:ii_to_pp}\\
+ |\mathcal{M}_{SS\rightarrow hh}|^2 = |\mathcal{M}_{hh\rightarrow SS}|^2 &=& 32 \lambda^2 \left( \frac{s + 2 m_h^2}{s - m_h^2} \right)^2 , \label{eq:ii_to_hh}\\
+ |\mathcal{M}_{SS\rightarrow t\bar{t}}|^2 = |\mathcal{M}_{t\bar{t}\rightarrow SS}|^2 &=& 8 \lambda^2 m_t^2 \frac{s - 4 m_t^2}{(s - m_h^2 )^2 + m_h^2 \Gamma_h^2} , \label{eq:ii_to_tt}\\
+ |\mathcal{M}_{SS\rightarrow W^+W^-}|^2 = |\mathcal{M}_{W^+W^-\rightarrow SS}|^2 &=& \frac{16}{9} \lambda^2 \frac{ s^2 - 4 m_W^2 s + 12 m_W^4 }{ ( s - m_h^2 )^2 + m_h^2 \Gamma_h^2 } , \label{eq:ii_to_WW}\\
+ |\mathcal{M}_{SS\rightarrow ZZ}|^2 = |\mathcal{M}_{ZZ\rightarrow SS}|^2 &=& \frac{8}{9} \lambda^2 \frac{ s^2 - 4 m_Z^2 s + 12 m_Z^4 }{ ( s - m_h^2 )^2 + m_h^2 \Gamma_h^2 } . \label{eq:ii_to_ZZ} 
+\end{eqnarray}
+
+\item $1 \rightarrow 2$-decay processes:\\
+
+Several different decays have to be taken into account. Starting with the decay of a SM-Higgs into two singlet scalars, the corresponding collision term is given by
+\begin{eqnarray}
+&&\mathcal{C}^S_{h \leftrightarrow SS}[f_S]( p , T ) = \frac{|\mathcal{M}_{h \rightarrow SS}|^2}{16\pi \; p \; \sqrt{m_S^2 + p^2} }\times\nonumber\\
+&&\times \int_{p'_\mathrm{min}}^{p'_\mathrm{max}} \frac{p' \mathrm{d}p' }{\sqrt{m_S^2 + p'^2}} \left(\vphantom{\frac{ f_S^{eq}(\xi,r)}{ 1}} f_S^\mathrm{eq}(p,T) \; f_S^\mathrm{eq}(p',T) - f_S(p,T) \; f_S(p',T) \right),
+\end{eqnarray}
+with boundaries $p'_\text{min} = \left| \frac{m_h \varsigma - ( m_h^2 - 2 m_S^2 ) p}{2 m_S^2} \right|$ and $p'_\text{max} = \frac{m_h \varsigma + ( m_h^2 - 2 m_S^2 ) p}{2 m_S^2}$, where $\varsigma \equiv \sqrt{(m_h^2 - 4 m_S^2) ( m_S^2 + p^2 )}$, as well as the matrix element including a factor 2 because of annihilation/production of two scalars:
+\begin{align}
+|\mathcal{M}_{h \rightarrow SS}|^2=|\mathcal{M}_{SS \rightarrow h}|^2 = 16\lambda^2v^2.
+\label{eq:matrix_element_example}
+\end{align}
+Furthermore, there are two collision terms related to the decay of a singlet scalar $S$ into two sterile neutrinos $N$. The first is the one used in the Boltzmann equation for $S$,
+\begin{align}
+\mathcal{C}^S_{S \rightarrow NN}[f_S]( p , T ) = -\frac{m_S}{\sqrt{m_S^2 + p^2}} \Gamma_{S \rightarrow NN} f_S(p, T),
+\end{align}
+with the decay widths $\Gamma_{S \rightarrow NN} = y^2 m_S/(16 \pi)$.  The second version is the one used in the Boltzmann equation for $N$,
+\begin{align}
+\mathcal{C}^N_{S \rightarrow NN}[f_S](p , T) = \frac{m_S \Gamma_{S \rightarrow NN}}{p^2}\int\limits_{p'_\text{min,N}}^\infty \frac{\mathrm{d}p' \; p' \; f_S(p',T)}{\sqrt{m_S^2 + p'^2}},
+ \label{eq:CT_N_App}
+\end{align}
+with $p'_\text{min,N} = \left| p - \frac{m_S^2}{4 p} \right|$. Note that the two collision terms $\mathcal{C}^S_{S \rightarrow NN}$ and $\mathcal{C}^N_{S \rightarrow NN}$ appear to be somewhat different, although one may very naively expect one to be just the negative of each other. However, we should keep in mind that we are working on the level of momentum distribution functions, which implies that the collision terms look rather different depending on whether or not the desired distribution function is integrated over.
+
+\end{itemize}
+In these equations it is understood that $p$, $p'$, and $T$ are substituted in favour of $\xi$, $\xi'$, and $r$, as specified in Eq.~\eqref{eq:xi_and_r_definition}.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\label{app:transf_variables}Transformation of Variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As stated in the main text, we perform a transformation of variables in order to bring the Liouville operator $\hat{L} = \frac{\partial}{\partial t} - H p \frac{\partial}{\partial p}$ into a more convenient form. To see how this results into Eq.~\eqref{eq:liouville_final_form}, consider a general transformation into new variables $r$ and $\xi$:
+\begin{align}
+ \left.
+ \begin{matrix}
+ t\\
+ p
+ \end{matrix} \right\} \to \left\{
+ \begin{matrix}
+ r = r(t, p),\\
+ \xi = \xi (t,p).
+ \end{matrix} \right.
+\end{align}
+These new variables can be inserted into the Liouville operator $\hat{L}$:
+\begin{align}
+\hat{L} = \frac{\partial r}{\partial t} \frac{\partial }{\partial r} +  \frac{\partial \xi}{\partial t} \frac{\partial }{\partial \xi}- H p(r,\xi) \left(  \frac{\partial r}{\partial p} \frac{\partial}{\partial r}+ \frac{\partial \xi}{\partial p} \frac{\partial}{\partial \xi} \right).
+\end{align}
+To simplify $\hat{L}$, we need to get rid of one of the two differential operators. In other words, the new variables would be most useful if we could choose them in such a way that they transform the partial differential equation into an effective ordinary differential equation. The first step is to demand that $r$ does not depend on $p$, which eliminates one term:
+\begin{align}
+\hat{L}=\frac{\partial r}{\partial t} \frac{\partial }{\partial r} +  \left[ \frac{\partial \xi}{\partial t} - H p(r,\xi)  \frac{\partial \xi}{\partial p}\right] \frac{\partial}{\partial \xi}.
+\end{align}
+Next, we demand
+\begin{align}
+\frac{\partial \xi}{\partial t}  =  H p(r,\xi)  \frac{\partial \xi}{\partial p} .
+\end{align}
+This is a rather simple partial differential equation. Fixing the initial condition
+\begin{align}
+\xi(p,t_0)=\xi_0(p),
+\end{align}
+where $\xi_0$ is some arbitrary $C^1$-function, it has the simple solution
+\begin{align}
+ \xi(p,t)=\xi_0\left(\frac{a(t)}{a(t_0)}\; p\right).
+ \label{eq:xi_dependence}
+\end{align}
+This implies that, if we fulfill the requirements that $r$ only depends on $t$ and the dependence of $\xi$ on $p$ and $t$ is given by Eq.~\eqref{eq:xi_dependence}, the Liouville operator in terms of the new coordinates will have the simple form
+\begin{align}
+ \hat{L} = \frac{\partial r}{\partial t}\frac{\partial}{\partial r}.
+ \label{eq:Liouville-simpler}
+\end{align}
+We can make our life even easier by a smart choice for the functions $r(t)$ and $\xi_0$. Exploiting the one-to-one correspondence between temperature $T$ and time $t$, one possible choice is:
+\begin{align}\nonumber
+ r &= \frac{m_0}{T}\ \ \ {\rm and}\\
+ \xi &= \frac{1}{T_0}\frac{a(t)}{a(t(T_0))} \; p = \left( \frac{g_s(T_0)}{g_s(T)} \right)^{1/3}\;\frac{p}{T},
+ \label{eq:xi_and_r_definition_appendix}
+\end{align}
+for some reference mass $m_0$ and some reference temperature $T_0$, both of which we choose to equal the Higgs mass:
+\begin{align}
+m_0 = T_0 = m_h.
+\end{align}
+For the last equality in Eq.~\eqref{eq:xi_and_r_definition_appendix}, we have used the fact that the comoving entropy density $s$ is constant,
+\begin{align}
+ s(T)a(T)^3 = \frac{2\pi^2}{45} g_s(T) \; T^3 \; a^3(T) = \text{const.},
+ \label{eq:constant-entropy}
+\end{align}
+which allows to relate the scale factor $a(T)$ to the effective number $g_s(T)$ of relativistic entropy degrees of freedom. Eq.~\eqref{eq:constant-entropy} can also be used to derive the time-temperature relation
+\begin{align}
+\frac{dT}{dt}=-HT\left( \frac{T g_s'(T)}{3 g_s(T)} + 1 \right)^{-1}.
+\end{align}
+Plugging this into the Liouville operator from Eq.~\eqref{eq:Liouville-simpler} yields its final form,
+\begin{align}
+\hat{L} = r H \left( \frac{T g_s'}{3 g_s} + 1 \right)^{-1}\frac{\partial}{\partial r}.
+\end{align}
+This completes the proof of Eq.~\eqref{eq:liouville_final_form}.
