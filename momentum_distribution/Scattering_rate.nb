@@ -1,0 +1,266 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8969,        258]
+NotebookOptionsPosition[      7708,        228]
+NotebookOutlinePosition[      8042,        243]
+CellTagsIndexPosition[      7999,        240]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Calculation of \[Gamma] from 1706.07433", "Title",
+ CellChangeTimes->{{3.767587029963499*^9, 3.76758704826537*^9}, {
+  3.767588781607629*^9, 3.767588782778543*^9}},
+ FontSize->36,ExpressionUUID->"c2f06cba-ae12-46dd-9bd1-aef19d700cec"],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.767589089640028*^9, 3.7675890896415033`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"146fc625-c351-4f73-918c-7944604be0e9"],
+
+Cell[CellGroupData[{
+
+Cell["Parameters", "Section",
+ CellChangeTimes->{{3.767587199799658*^9, 
+  3.767587202719397*^9}},ExpressionUUID->"ce3e5a2c-2275-4f1c-84da-\
+9f5e0c7e24bb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"mh", "=", "124"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mt", "=", "171"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.767587204757987*^9, 3.7675872206925583`*^9}, {
+  3.7675872562979517`*^9, 3.7675872569063387`*^9}, {3.7675872925586567`*^9, 
+  3.767587294455633*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"7dbcc0a5-49d8-420d-84a2-a4af2edbb4cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Supporting functions", "Section",
+ CellChangeTimes->{{3.767587314966337*^9, 
+  3.767587320640854*^9}},ExpressionUUID->"ce17f62e-d0e8-459e-877f-\
+37e1ce20cb98"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"k", "[", 
+   RowBox[{"\[Omega]_", ",", "mf_"}], "]"}], ":=", 
+  SqrtBox[
+   RowBox[{
+    SuperscriptBox["\[Omega]", "2"], "-", 
+    SuperscriptBox["mf", "2"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s", "[", 
+   RowBox[{"\[Omega]_", ",", "mx_", ",", "mf_"}], "]"}], ":=", 
+  RowBox[{
+   SuperscriptBox["mx", "2"], "+", 
+   RowBox[{"2", " ", "\[Omega]", " ", "mx"}], "+", 
+   SuperscriptBox["mf", "2"]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"kcm", "[", 
+   RowBox[{"\[Omega]_", ",", "mx_", ",", "mf_"}], "]"}], ":=", 
+  SqrtBox[
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], "]"}], "-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"mx", "-", "mf"}], ")"}], "2"]}], ")"}], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"s", "[", 
+        RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], "]"}], "-", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"mx", "+", "mf"}], ")"}], "2"]}], ")"}]}], 
+    RowBox[{"4", 
+     RowBox[{"s", "[", 
+      RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], 
+      "]"}]}]]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gBose", "[", 
+   RowBox[{"\[Omega]_", ",", "T_"}], "]"}], ":=", 
+  FractionBox["1", 
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[Omega]", "/", "T"}]], "+", "1"}]]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"gFermi", "[", 
+   RowBox[{"\[Omega]_", ",", "T_"}], "]"}], ":=", 
+  FractionBox["1", 
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"\[Omega]", "/", "T"}]], "-", "1"}]]}]}], "Input",
+ CellChangeTimes->{{3.767587451318598*^9, 3.767587613774559*^9}, {
+  3.767588275630517*^9, 3.767588278480132*^9}, {3.7675883236936398`*^9, 
+  3.767588352698019*^9}, {3.767589162733747*^9, 3.7675891822420073`*^9}, {
+  3.767589266802525*^9, 3.767589281707172*^9}, {3.7675893621243057`*^9, 
+  3.767589412324212*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"d1288007-224d-4646-837c-b892349e3148"],
+
+Cell["\<\
+Thermally averaged matrix element for DM scattering off particles in plasma \
+for singlet scalar higgs portal DM model (eq. 43):\
+\>", "Text",
+ CellChangeTimes->{{3.767587623876835*^9, 3.767587687233955*^9}, {
+  3.767589419559724*^9, 
+  3.767589426058155*^9}},ExpressionUUID->"40de3bff-f3eb-4883-a1ee-\
+d0e89fcd1a4b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Mt2Scalarf", "[", 
+   RowBox[{
+   "\[Lambda]s_", ",", "Nf_", ",", "mf_", ",", "mh_", ",", "mx_", ",", 
+    "\[Omega]_"}], "]"}], ":=", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Nf", " ", 
+     SuperscriptBox["\[Lambda]s", "2"], 
+     SuperscriptBox["mf", "2"]}], 
+    RowBox[{"8", " ", 
+     SuperscriptBox[
+      RowBox[{"k", "[", 
+       RowBox[{"\[Omega]", ",", "mf"}], "]"}], "4"]}]], 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"kcm", "[", 
+          RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], "]"}], "2"]}], "-", 
+       RowBox[{"2", 
+        SuperscriptBox["mf", "2"]}], "+", 
+       SuperscriptBox["mh", "2"]}], 
+      RowBox[{"1", "+", 
+       RowBox[{
+        SuperscriptBox["mh", "2"], "/", 
+        RowBox[{"(", 
+         RowBox[{"4", 
+          SuperscriptBox[
+           RowBox[{"kcm", "[", 
+            RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], "]"}], "2"]}], 
+         ")"}]}]}]], "-", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox["mh", "2"], "-", 
+        RowBox[{"2", 
+         SuperscriptBox["mf", "2"]}]}], ")"}], 
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "+", 
+        RowBox[{"4", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"kcm", "[", 
+            RowBox[{"\[Omega]", ",", "mx", ",", "mf"}], "]"}], "2"], "/", 
+          SuperscriptBox["mh", "2"]}]}]}], "]"}]}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.767587691407062*^9, 3.76758771776131*^9}, {
+   3.767588138436363*^9, 3.767588167749023*^9}, {3.76758820394353*^9, 
+   3.767588310305496*^9}, {3.767588368961608*^9, 3.767588523212607*^9}, {
+   3.767588633754799*^9, 3.767588665225322*^9}, 3.767589050816432*^9, {
+   3.767589196267303*^9, 3.767589200437993*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"308c93d4-aec1-4238-a000-5d01fda8dcfa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\[Gamma] from eq 6", "Section",
+ CellChangeTimes->{{3.767588732119944*^9, 
+  3.767588778668727*^9}},ExpressionUUID->"4ea9cd05-45ee-40da-824e-\
+d996bb97c58f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Gamma]T", "[", 
+   RowBox[{
+   "T_", ",", "mx_", ",", "gx_", ",", "\[Lambda]s_", ",", "Nf_", ",", "mf_", 
+    ",", "mh_"}], "]"}], ":=", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{"48", " ", 
+     SuperscriptBox["\[Pi]", "3"], "gx", " ", 
+     SuperscriptBox["mx", "3"]}]], 
+   RowBox[{"(", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"gFermi", "[", 
+        RowBox[{"\[Omega]", ",", "T"}], "]"}], 
+       RowBox[{"D", "[", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"k", "[", 
+           RowBox[{"\[Omega]", ",", "mf"}], "]"}], "4"], 
+         RowBox[{"Mt2Scalarf", "[", 
+          RowBox[{
+          "\[Lambda]s", ",", "Nf", ",", "mf", ",", "mh", ",", "mx", ",", 
+           "\[Omega]"}], "]"}]}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\[Omega]", ",", "0", ",", "\[Infinity]"}], "}"}]}], "]"}], 
+    ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.767588772710915*^9, 3.767588798739997*^9}, {
+  3.767588846188155*^9, 3.767588921040358*^9}, {3.767588963508889*^9, 
+  3.767588997988387*^9}, {3.767589345608827*^9, 3.7675893552184*^9}, {
+  3.767589451000144*^9, 3.767589461137051*^9}, {3.767589639442194*^9, 
+  3.7675897360619097`*^9}, {3.767590049291789*^9, 3.7675900983877993`*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"a2d168f7-1bbf-472b-badd-1b1c46168033"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 32}, {Automatic, 41}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 240, 3, 88, "Title",ExpressionUUID->"c2f06cba-ae12-46dd-9bd1-aef19d700cec"],
+Cell[823, 27, 223, 3, 34, "Input",ExpressionUUID->"146fc625-c351-4f73-918c-7944604be0e9"],
+Cell[CellGroupData[{
+Cell[1071, 34, 155, 3, 68, "Section",ExpressionUUID->"ce3e5a2c-2275-4f1c-84da-9f5e0c7e24bb"],
+Cell[1229, 39, 394, 8, 55, "Input",ExpressionUUID->"7dbcc0a5-49d8-420d-84a2-a4af2edbb4cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1660, 52, 165, 3, 68, "Section",ExpressionUUID->"ce17f62e-d0e8-459e-877f-37e1ce20cb98"],
+Cell[1828, 57, 2057, 58, 253, "Input",ExpressionUUID->"d1288007-224d-4646-837c-b892349e3148"],
+Cell[3888, 117, 327, 7, 60, "Text",ExpressionUUID->"40de3bff-f3eb-4883-a1ee-d0e89fcd1a4b"],
+Cell[4218, 126, 1899, 54, 156, "Input",ExpressionUUID->"308c93d4-aec1-4238-a000-5d01fda8dcfa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6154, 185, 163, 3, 68, "Section",ExpressionUUID->"4ea9cd05-45ee-40da-824e-d996bb97c58f"],
+Cell[6320, 190, 1360, 34, 117, "Input",ExpressionUUID->"a2d168f7-1bbf-472b-badd-1b1c46168033"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
